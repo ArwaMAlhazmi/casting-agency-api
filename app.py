@@ -22,7 +22,7 @@ def create_app(test_config=None):
 	@app.route('/hello')
 	def hello():
 		return jsonify({
-			"greeting": "hello form backend",
+			"greeting": "hello form casting agency api",
 			}), 200
 
 	'''

@@ -1,0 +1,781 @@
+{
+	"info": {
+		"_postman_id": "3c549807-09df-47e2-8510-03b879adf278",
+		"name": "udacity-fsnd-castingagencyapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "/actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"lily James\", \"age\": 29, \"gender\": \"female\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"Avengers: Endgame\", \"release_date\": \"2019-01-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"release_date\": \"2019-03-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"age\": 28}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Casting Assistant:\r\n* Can view actors and movies.\r\n* Only Get reqests are expected to go through.\r\n* All other calls are expected to fail with 403 unauthorized.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im0xY2dtbWo4QjdQTmhkSzd0R25idiJ9.eyJpc3MiOiJodHRwczovL2Rldi1uaDFlanY5MC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZjZDBiNjdmNDQwYzAwMDZlMWZlZjJkIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMTYwNTM1OSwiZXhwIjoxNjExNjkxNzU5LCJhenAiOiJqQmh1RE05NjRLOUIyTUIzR1M2N0ZBTjFkOTd4UEYwMyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.MxV9TW_Aj0Rr5y1b8JYgmfL8d2B4n5oqL3w6fo7kl6pP5twt6cpZNlxmM8Ouf3275B1NBl2OcyYpZmSM-cIpmN5GhPxkmqWic28Yd7YuIafmIaeHICoYFgWaI2d_ii5DY1AsBMmjPHZwFqAn1p-jl0Ua6z6_Cj6MDkNYiSlhoYevvL-EcihV90NgzZQnf2oBpyAdylUQJmoJytbQemNszVseQtF-k6sBaRSWzGFO-B7yaIoV7kbU98Ze3_OEGo7XUH-4f3_DlQwY-XxVV3IEQCjyXe-HZc_WZRt32xffnpipxj2xngdsRiY8KKfACe0U0wDJ28R-E16dJSnJi4DXgA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "/actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Jeremy Renner\", \"age\": 55, \"gender\": \"male\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"The Avengers\", \"release_date\": \"2012-01-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/4",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"release_date\": \"2015-04-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/4",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/4",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"age\": 56}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/4",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/4",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/4",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/4",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/4",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Casting Director:\r\n* All permissions a Casting Assistant has and add or delete an actor from the database and modify actors or movies.\r\n* Add and delete a movie calls are expected to fail with 403 unauthorized\r\n* All other calls are expected to go through. ",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im0xY2dtbWo4QjdQTmhkSzd0R25idiJ9.eyJpc3MiOiJodHRwczovL2Rldi1uaDFlanY5MC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZjOThlOGFjMDU4ZjgwMDZmNDIxMWQzIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMTYwNTIzMSwiZXhwIjoxNjExNjkxNjMxLCJhenAiOiJqQmh1RE05NjRLOUIyTUIzR1M2N0ZBTjFkOTd4UEYwMyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.QSIr8BP0ZIehgloRjJ-wkdTglmpgfwP5UCpIAH2UoYJH_NWS8gz0KykuUT1hjA1iypODy3XRQPePhmXFPkXvxpTnJ5TyLQjQ9E7HzG8RJaFPOnHZ-XloGGT4JdvHurBdMe1jetqjDxUWYBHS1TxD0DXYZzL1cg8xZ1-YLkgvxg5FkNw2pbZkbVPkLA-hmzXpDn2NmOAX9mxi8ISqdjabseDteS8SvTv1dqFzzk0Z6nXQG5rVkZzktQEyvJEjm9WLq6FavWsizj1ESeg7R-y3K0dqignAGSkmyhzacoRJUW-grAk3TgFz9XV8Xk8F4ocRng0h0sJk65rfllgt8VpEkA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "/actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im0xY2dtbWo4QjdQTmhkSzd0R25idiJ9.eyJpc3MiOiJodHRwczovL2Rldi1uaDFlanY5MC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZjOThlMDI0ZTJhZDEwMDcxNTlkNDdmIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMTU4MzQxMCwiZXhwIjoxNjExNjY5ODEwLCJhenAiOiJqQmh1RE05NjRLOUIyTUIzR1M2N0ZBTjFkOTd4UEYwMyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.Rd1EPClXKo0ipoi42X41FFySOWbiAHauQPpAQ_aQ5uaUEXVzaa-Vt8zX4BEP9ztw_4dsXFAwQTX9NtlDYNi8ih9j4lrxweZ2msStF3-DdddmlcUIjfwB9wOnXUMQI64bJ3C5hwS7VOyQdYbI3TUhE1OXCoBfSNWfSy8CNQ7d4sjjkZxT9cvirsr25nS7F_klg0VprOSRHdDmtD4QI2-AhcXJa0HDSVG3FBG6XpaQsoUT0WqnK-yMFhJh_q2EjaEDSWiS5ZUNBtWTTZ8y9zH5Nz5JKraMDU-PgaYt_YLvVPDQBWfkM8zNIXJWHvUNW8bVgBJTOIwE31Xp8n4WqCDzJw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Chris Evans\", \"age\": 39, \"gender\": \"male\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"Captain America: Civil War\", \"release_date\": \"2016-01-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"release_date\": \"2018-03-01\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/3",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"age\": 29}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/actors/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://casting-agancy-api.herokuapp.com/movies/3",
+							"protocol": "https",
+							"host": [
+								"casting-agancy-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Executive Producer:\r\n* All permissions a Casting Director has and Add or delete a movie from the database.\r\n* All calls are expected to go through",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im0xY2dtbWo4QjdQTmhkSzd0R25idiJ9.eyJpc3MiOiJodHRwczovL2Rldi1uaDFlanY5MC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWZjOThlMDI0ZTJhZDEwMDcxNTlkNDdmIiwiYXVkIjoiY2FzdGluZyIsImlhdCI6MTYxMTYwNTE0MCwiZXhwIjoxNjExNjkxNTQwLCJhenAiOiJqQmh1RE05NjRLOUIyTUIzR1M2N0ZBTjFkOTd4UEYwMyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.bqBo3F8v9qovgrdO13G4rOkU8aMzBFXKSiAkG4M4K68hc88HOwPTZlqgtED0UqiGdr1__oBiipv8x9e8NEHw43VNhmhx9leEJ_OmmHqm-VwlJEfknIub51jfr7EhFpRJJMfnZhBwdHR47739ztBc67COMiiOYuo1b1Ydu8wxUXJhU5kFrbBTWVipsRTmsJalSGua1pqRME4HJ9RqgWijREedTrvEBUmOwxkl0HdYJuZRP0l_S3SIHvNDC7F77VOO10aY0YbfgsMtP3Dw-0W6Y6BqC-udoGjPQ41_d880lo95iem3QfQHpbY2l4ZjA-0n4CSdSj-wkQ1T6Ni3i7Hbew",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

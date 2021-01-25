@@ -4,6 +4,9 @@
 
 * [Overview](#Overview)
 * [Getting Started](#Getting_Started)
+* [Running the Server Locally](Running_the_Server_Locally)
+* [Testing](Testing)
+* [API Reference](API_Reference)
 
 ## Overview
 Udacity FSND - Casting Agency API Capstone
@@ -33,7 +36,7 @@ pip install -r requirements.txt
 This will install all of the required packages we selected within the `requirements.txt` file.
 
 
-## Running the server Locally
+## Running the Server Locally
 
 From within the project directory first ensure you are working using your created virtual environment.
 
@@ -72,7 +75,7 @@ py test_app.py
 
 - Authentication: Auth0 api is used for authenticating. 
   The endpoints can be requested with [Postman](https://getpostman.com). 
-  1. Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json` 
+  1. Import the postman collection `udacity-fsnd-castingagencyapi.postman_collection` 
   2. Run the collection. 
   * Each folder(Casting Assistant, Casting Director, Executive Producer) has a description for tha expected response for each request based on the role of the user making the request.
 

@@ -29,9 +29,11 @@ def create_app(test_config=None):
 	GET endpoint to get movies
 	'''
 	@app.route('/movies')
-	def retrieve_movies():
+	@requires_auth('get:movies')
+	def retrieve_movies(payload):
 		movies = Movie.query.order_by(Movie.id).all()
 		formated_movies = [movie.format() for movie in movies]
+
 
 		return jsonify({
 			"success": True,
@@ -42,9 +44,11 @@ def create_app(test_config=None):
 	GET endpoint to get actors
 	'''
 	@app.route('/actors')
-	def retrieve_actors():
+	@requires_auth('get:actors')
+	def retrieve_actors(payload):
 		actors = Actor.query.order_by(Actor.id).all()
 		formated_actors = [actor.format() for actor in actors]
+
 
 		return jsonify({
 			"success": True,
@@ -139,7 +143,7 @@ def create_app(test_config=None):
 			movie.insert()
 
 			return jsonify({
-	          'success': True
+	          'success': True,
 	        }), 200
 		except:
 			abort(422)
@@ -153,7 +157,6 @@ def create_app(test_config=None):
 
 		#Fetch actor to be updated
 		actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
-		print(actor)
 
 		if actor is None:
 			abort(404)
@@ -174,24 +177,15 @@ def create_app(test_config=None):
 		if new_gender: 
 			actor.gender = new_gender
 
-		print(actor.name)
-		print(actor.age)
-		print(actor.gender)
-
 		try:
-			print("inside try")
-
 			actor.update()
-
-			print("after update")
 
 			updated_actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
 			formatted_actor = updated_actor.format()
 
-			print(updated_actor)
 			return jsonify({
 				'success': True,
-				'deleted': formatted_actor
+				'actor': formatted_actor
 				}), 200
 
 		except:
@@ -236,57 +230,57 @@ def create_app(test_config=None):
 		except:
 			abort(422)
 
-		'''
-		Error Handler  
-		'''
-		@app.errorhandler(422)
-		def unprocessable(error):
-			return jsonify({
-				"success": False,
-				"error": 422,
-				"message": "unprocessable"
-				}), 422
+	'''
+	Error Handler  
+	'''
+	@app.errorhandler(422)
+	def unprocessable(error):
+		return jsonify({
+			"success": False,
+			"error": 422,
+			"message": "unprocessable"
+			}), 422
 
-		@app.errorhandler(404)
-		def not_found(error):
-			return jsonify({
-				"success": False,
-				"error": 404,
-				"message": "Resource Not Found"
-				}), 404
+	@app.errorhandler(404)
+	def not_found(error):
+		return jsonify({
+			"success": False,
+			"error": 404,
+			"message": "Resource Not Found"
+			}), 404
 
-		@app.errorhandler(400)
-		def bad_request(error):
-			return jsonify({
-				"success": False, 
-				"error": 400,
-				"message": "Bad Request"
-				}), 400
+	@app.errorhandler(400)
+	def bad_request(error):
+		return jsonify({
+			"success": False, 
+			"error": 400,
+			"message": "Bad Request"
+			}), 400
 
-		@app.errorhandler(500)
-		def internal_server_error(error):
-			return jsonify({
-				"success": False,
-				"error": 500,
-				"message": "Internal Server Error"
-				}), 500
+	@app.errorhandler(500)
+	def internal_server_error(error):
+		return jsonify({
+			"success": False,
+			"error": 500,
+			"message": "Internal Server Error"
+			}), 500
 
-		@app.errorhandler(401)
-		def unotherized(error):
-			return jsonify({
-				"success": False,
-				"error": 401,
-				"message": "Unautherized"
-				}), 401
+	@app.errorhandler(401)
+	def unotherized(error):
+		return jsonify({
+			"success": False,
+			"error": 401,
+			"message": "Unautherized"
+			}), 401
 
-		'''
-		error handler for AuthError
-		'''
-		@app.errorhandler(AuthError)
-		def handle_auth_error(ex):
-			response = jsonify(ex.error)
-			response.status_code = ex.status_code
-			return response
+	'''
+	error handler for AuthError
+	'''
+	@app.errorhandler(AuthError)
+	def handle_auth_error(ex):
+		response = jsonify(ex.error)
+		response.status_code = ex.status_code
+		return response
 
 
 	return app

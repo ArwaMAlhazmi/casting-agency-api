@@ -12,9 +12,10 @@
 Udacity FSND - Casting Agency API Capstone
 SQLAlchemy ORM, PostgreSQL, Python3, Flask, CORS, RBAC, Auth0, Unittest
 
-Motivation: This is Capstone project for Udacity FSND, It covers all of the concepts and the skills to build an API from start to finish and host it.
+## Motivation: 
+This capstone was developed for Udacity FSND, It covers all of the concepts and the skills to build an API from start to finish and host it.
 
-The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. The Casting Agency API is a system to simplify and streamline the company's process.
+The Casting Agency api models a company that is responsible for creating movies and managing and assigning actors to those movies. The Casting Agency API is a system to simplify and streamline the company's process.
 
 ## Getting Started
 

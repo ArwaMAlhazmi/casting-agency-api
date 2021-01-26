@@ -1,9 +1,9 @@
 import os
-from flask import Flask, request, abort, jsonify
+from flask import (Flask, request, abort, jsonify)
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from models import setup_db, Movie, Actor
-from auth import AuthError, requires_auth
+from models import (setup_db, Movie, Actor)
+from auth import (AuthError, requires_auth)
 
 
 def create_app(test_config=None):
@@ -78,7 +78,7 @@ def create_app(test_config=None):
                 'deleted': movie_id
             }), 200
 
-        except BaseException:
+        except unprocessableEntity:
             abort(422)
 
     '''
@@ -101,7 +101,7 @@ def create_app(test_config=None):
                 'deleted': actor_id
             }), 200
 
-        except BaseException:
+        except unprocessableEntity:
             abort(422)
 
     '''
@@ -124,7 +124,7 @@ def create_app(test_config=None):
             return jsonify({
                 'success': True
             }), 200
-        except BaseException:
+        except unprocessableEntity:
             print("aported 422")
             abort(422)
 
@@ -147,7 +147,7 @@ def create_app(test_config=None):
             return jsonify({
                 'success': True,
             }), 200
-        except BaseException:
+        except unprocessableEntity:
             abort(422)
 
     '''
@@ -190,7 +190,7 @@ def create_app(test_config=None):
                 'actor': formatted_actor
             }), 200
 
-        except BaseException:
+        except unprocessableEntity:
             abort(422)
 
     '''
@@ -229,7 +229,7 @@ def create_app(test_config=None):
                 "success": True,
                 "movie": formatted_movie
             }), 200
-        except BaseException:
+        except unprocessableEntity:
             abort(422)
 
     '''
@@ -240,7 +240,7 @@ def create_app(test_config=None):
         return jsonify({
             "success": False,
             "error": 422,
-            "message": "unprocessable"
+            "message": "Unprocessable"
         }), 422
 
     @app.errorhandler(404)

@@ -4,7 +4,7 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 
 from app import create_app
-from models import setup_db, Actor, Movie
+from models import (setup_db, Actor, Movie)
 
 castingAssistantJWT = os.environ['CASTING_ASSISTANT_JWT']
 castingDirectorJWT = os.environ['CASTING_DIRECTOR_JWT']
@@ -18,9 +18,7 @@ class CastingTestCase(unittest.TestCase):
         """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        self.database_name = "castingagency_test"
-        self.database_path = "postgres://{}:{}@{}/{}".format(
-            'postgres', 'postgres', 'localhost:5432', self.database_name)
+        self.database_path = os.environ['TEST_DATABASE_PATH']
         setup_db(self.app, self.database_path)
 
         self.new_actor = {
@@ -206,7 +204,7 @@ class CastingTestCase(unittest.TestCase):
                 'Authorization': 'Bearer {}'.format(executiveProducerJWT)})
         data = json.loads(res.data)
 
-        movie = Movie.query.filter(Movie.id == 1).one_or_none()
+        movie = Movie.query.filter(Movie.id == 2).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
@@ -233,7 +231,7 @@ class CastingTestCase(unittest.TestCase):
                 'Authorization': 'Bearer {}'.format(executiveProducerJWT)})
         data = json.loads(res.data)
 
-        actor = Actor.query.filter(Actor.id == 1).one_or_none()
+        actor = Actor.query.filter(Actor.id == 2).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)

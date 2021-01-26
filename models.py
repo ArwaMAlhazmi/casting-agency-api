@@ -11,12 +11,15 @@ db = SQLAlchemy()
 setup_db(app)
     binds a flask application and a SQLAlchemy service
 '''
+
+
 def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
     db.create_all()
+
 
 class crudClass(db.Model):
     __abstract__ = True
@@ -32,9 +35,12 @@ class crudClass(db.Model):
     def update(self):
         db.session.commit()
 
+
 '''
 Movie
 '''
+
+
 @dataclass
 class Movie(crudClass):
     __tablename__ = 'movies'
@@ -58,6 +64,8 @@ class Movie(crudClass):
 '''
 Actor
 '''
+
+
 @dataclass
 class Actor(crudClass):
     __tablename__ = 'actors'

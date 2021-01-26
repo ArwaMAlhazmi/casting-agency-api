@@ -12,8 +12,8 @@ def create_app(test_config=None):
     CORS(app)
 
     '''
-	Use the after_request decorator to set Access-Control-Allow
-	'''
+    Use the after_request decorator to set Access-Control-Allow
+    '''
     @app.after_request
     def after_request(response):
         response.headers.add(
@@ -31,8 +31,8 @@ def create_app(test_config=None):
         }), 200
 
     '''
-	GET endpoint to get movies
-	'''
+    GET endpoint to get movies
+    '''
     @app.route('/movies')
     @requires_auth('get:movies')
     def retrieve_movies(payload):
@@ -45,8 +45,8 @@ def create_app(test_config=None):
         }), 200
 
     '''
-	GET endpoint to get actors
-	'''
+    GET endpoint to get actors
+    '''
     @app.route('/actors')
     @requires_auth('get:actors')
     def retrieve_actors(payload):
@@ -59,8 +59,8 @@ def create_app(test_config=None):
         }), 200
 
     '''
-	DELETE endpoint to delete movie based on movie_id
-	'''
+    DELETE endpoint to delete movie based on movie_id
+    '''
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
     @requires_auth('delete:movies')
     def delete_movie(payload, movie_id):
@@ -82,8 +82,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	DELETE endpoint to delete actor based on actor_id
-	'''
+    DELETE endpoint to delete actor based on actor_id
+    '''
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
     def delete_actor(payload, actor_id):
@@ -105,8 +105,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	POST endpoint to create a new actor
-	'''
+    POST endpoint to create a new actor
+    '''
     @app.route('/actors', methods=['POST'])
     @requires_auth('post:actors')
     def create_actor(payload):
@@ -129,8 +129,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	POST endpoint to create a new movie
-	'''
+    POST endpoint to create a new movie
+    '''
     @app.route('/movies', methods=['POST'])
     @requires_auth('post:movies')
     def create_movie(payload):
@@ -151,8 +151,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	PATCH endpoint to update an actor based on id
-	'''
+    PATCH endpoint to update an actor based on id
+    '''
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actors')
     def patch_actor(payload, actor_id):
@@ -194,8 +194,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	PATCH endpoint to update a movie based on id
-	'''
+    PATCH endpoint to update a movie based on id
+    '''
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
     def patch_movie(payload, movie_id):
@@ -233,8 +233,8 @@ def create_app(test_config=None):
             abort(422)
 
     '''
-	Error Handler
-	'''
+    Error Handler
+    '''
     @app.errorhandler(422)
     def unprocessable(error):
         return jsonify({
@@ -276,8 +276,8 @@ def create_app(test_config=None):
         }), 401
 
     '''
-	error handler for AuthError
-	'''
+    error handler for AuthError
+    '''
     @app.errorhandler(AuthError)
     def handle_auth_error(ex):
         response = jsonify(ex.error)

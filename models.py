@@ -4,13 +4,16 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 database_name = "castingagencydb"
-database_path = "postgresql://{}:{}@{}/{}".format('postgres', 'postgres','localhost:5432', database_name)
+database_path = "postgresql://{}:{}@{}/{}".format(
+    'postgres', 'postgres', 'localhost:5432', database_name)
 db = SQLAlchemy()
 
 '''
 setup_db(app)
     binds a flask application and a SQLAlchemy service
 '''
+
+
 def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -19,19 +22,23 @@ def setup_db(app, database_path=database_path):
     db.create_all()
     # db_drop_and_create_all()
 
+
 '''
 db_drop_and_create_all()
     drops the database tables and starts fresh used to initialize a clean database
 '''
+
+
 def db_drop_and_create_all():
     db.drop_all()
     db.create_all()
+
 
 '''
 Association actors_movies
 
 '''
-# actors_movies = db.Table('actors_movies', 
+# actors_movies = db.Table('actors_movies',
 # 	db.Column('actor_id', db.Integer, db.ForeignKey('actors.id'), primary_key=True),
 # 	db.Column('movie_id', db.Integer, db.ForeignKey('movies.id'), primary_key=True)
 # 	)
@@ -40,68 +47,73 @@ Association actors_movies
 Movie
 
 '''
-class Movie(db.Model):  
-  __tablename__ = 'movies'
 
-  id = Column(Integer, primary_key=True)
-  title = Column(String)
-  release_date = Column(Date)
 
-  def __init__(self, title, release_date):
-    self.title = title
-    self.release_date = release_date
+class Movie(db.Model):
+    __tablename__ = 'movies'
 
-  def insert(self):
-    db.session.add(self)
-    db.session.commit()
-  
-  def update(self):
-    db.session.commit()
+    id = Column(Integer, primary_key=True)
+    title = Column(String)
+    release_date = Column(Date)
 
-  def delete(self):
-    db.session.delete(self)
-    db.session.commit()
+    def __init__(self, title, release_date):
+        self.title = title
+        self.release_date = release_date
 
-  def format(self):
-    return {
-      'id': self.id,
-      'title': self.title,
-      'release_date': self.release_date
-    }
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'release_date': self.release_date
+        }
+
 
 '''
 Actor
 
 '''
-class Actor(db.Model):  
-  __tablename__ = 'actors'
 
-  id = Column(Integer, primary_key=True)
-  name = Column(String)
-  age = Column(Integer)
-  gender = Column(String)
-  # movies = db.relationship('Movie', secondary=actors_movies, backref=db.backref('actors', lazy=True))
 
-  def __init__(self, name, age, gender):
-    self.name = name
-    self.age = age
-    self.gender = gender
+class Actor(db.Model):
+    __tablename__ = 'actors'
 
-  def insert(self):
-    db.session.add(self)
-    db.session.commit()
-  
-  def update(self):
-    db.session.commit()
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    age = Column(Integer)
+    gender = Column(String)
+    # movies = db.relationship('Movie', secondary=actors_movies, backref=db.backref('actors', lazy=True))
 
-  def delete(self):
-    db.session.delete(self)
-    db.session.commit()
+    def __init__(self, name, age, gender):
+        self.name = name
+        self.age = age
+        self.gender = gender
 
-  def format(self):
-    return {
-      'id': self.id,
-      'name': self.name,
-      'age': self.age,
-      'gender': self.gender
-    }
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'age': self.age,
+            'gender': self.gender
+        }

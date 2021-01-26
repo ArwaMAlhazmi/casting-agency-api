@@ -1,8 +1,8 @@
 export FLASK_APP=app.py
 export FLASK_DEBUG=true
 
-export DATABASE_PATH=postgres://postgres:twin8693@localhost:5432/castingagencydb
-export TEST_DATABASE_PATH=postgres://postgres:twin8693@localhost:5432/castingagency_test
+export DATABASE_PATH=postgres://postgres:postgres@localhost:5432/castingagencydb
+export TEST_DATABASE_PATH=postgres://postgres:postgres@localhost:5432/castingagency_test
 
 export AUTH0_DOMAIN=dev-nh1ejv90.us.auth0.com
 export ALGORITHMS=['RS256']
